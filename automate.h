@@ -3,7 +3,7 @@
 
 #include "graphe.h"
 
-struct automate * creer_automate (int *, char *, int, int *);
+struct automate * creer_automate (int, char *, int, int *);
 void liberer_automate (struct automate *);
 void ajouter_transition (struct automate *, int, int, char);
 
