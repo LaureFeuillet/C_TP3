@@ -1,35 +1,37 @@
+#include "graphe.h"
 #include "automate.h"
+#include "langage.h"
+
+void trier_liste(struct larc **);
+void trier_listes(struct graphe *);
 
 // Paramètres : 1 automate et 1 mot
 // Renvoie 1 si le mot est reconnu par l'automate
 // Renvoie 0 si le mot n'est pas reconnu par l'automate
-int accepte(struct automate * pautomate, char * mot, int taille_mot)
+int accepte(struct automate * pautomate, const char * mot)
 {
 	// On va utiliser la fonction transiter(struct graphe * pgraphe, int etat, int symbole)
 	// Qui renvoie l'état d'arrivée, ou -1 si la transition n'existe pas
 
-	int a = 0;
+	int e = pautomate->etat_init; // Mémoire de l'état
+	// int i = 0; // Compteur
 
-	int x = transiter(pautomate->graphe_trans, pautomate->etat_init, mot[0]);
-
-	int i=0;
-	
-	while((i<taille_mot) && (x != -1))
+	// On regarde si l'étiquette appartient à l'alphabet
+	// for (i = 0; (mot[i] != '\0') && (e != -1); ++i)
+	for (; *mot != '\0' && e != -1; ++mot)
 	{
-		x = transiter(pautomate->graphe_trans, x, mot[i]);
-		i++;
+		e = transiter(pautomate->graphe_trans, e, mot[i]);
 	}
 
-	// Il faut que l'on soit dans un état final pour que le mot soit reconnu par l'AFD
-
-	return a;
+	// La case -1 correspond à 0
+	return pautomate->etats_finaux[e];
 }
 
 // Affiche les mots reconnus par l'automate 
 // Par ordre de longueur jusque maxlongueur (passé en paramètre)
 void affiche_langage_taille_croissante(struct automate * pautomate, int maxlongueur)
 {
-
+	
 }
 
 // Trie alphabétiquement la liste d'adjacence en fonction des étiquettes
