@@ -5,7 +5,7 @@
 int main(void)
 {
 	int nbetats = 4;
-	char alphabet[] = {'a','b'};
+	char alphabet[] = {'a','b', '\0'};
 	int etat_init = 0;
 	int etats_finaux_parametres[] = {3};
 	int nbetatsfinaux = 1;
@@ -22,9 +22,19 @@ int main(void)
 
 	afficher(pautomate->graphe_trans);
 
+	const char mot[] = "abb";
+
 	// Renvoie 1 si le mot est reconnu par l'automate
 	// Renvoie 0 si le mot n'est pas reconnu par l'automate
-	int x = accepte(pautomate, "abb");
+	int x = accepte(pautomate, mot);
+	if(x == 0)
+	{
+		printf("Le mot %s n'est pas reconnu par l'automate.\n", mot);
+	}
+	if(x == 1)
+	{
+		printf("Le mot %s est reconnu par l'automate.\n", mot);
+	}
 
 	return 0;
 }
