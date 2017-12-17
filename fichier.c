@@ -31,7 +31,6 @@ struct automate * lire_automate(FILE * pfichier)
     {
          ajouter_transition(pautomate, lecture[0], lecture[1], symbole);
     }
-    afficher(pautomate->graphe_trans);
     return pautomate;
 }
 

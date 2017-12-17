@@ -18,33 +18,33 @@ int main(void)
     {
         struct automate * pautomate = lire_automate(pfichier);
 
-        int c = 0; // Continuation ou non du menu
-        int x; // Choix du menu
+        int c = 1; // Continuation ou non du menu
+        int x=0; // Choix du menu
         while (c != 0)
         {
             while(x>3 || x<1)
             {
-                printf("\n1. Modifier l'automate\n2. Reconnaitre un mot\n3. Quitter\n");
+                printf("\n1. Modifier l'automate\n2. Reconnaitre un mot\n3. Quitter\nChoix :");
                 scanf("%d",&x);
             }
+            int s1;
+            int s2;
+            char symbole;
+            char mot[100];
+            int y; // Choix de la modification de l'automate
             switch(x)
             {
                 // Modifier l'automate
-                case 1 : 
-                    int y; // Choix de la modification de l'automate
-                    while(x>2 || x<1)
+                case 1 :
+                    while(y>2 || y<1)
                     {
                         printf("\n1. Ajouter un arc\n2. Retirer un arc\n");
-                        scanf("%d",&x);
+                        scanf("%d",&y);
                     }
                     switch(y)
-                    {  
+                    {
                         // Ajouter arc
                         case 1 :
-                            int s1;
-                            int s2;
-                            char symbole;
-
                             printf("Sommet de départ : ");
                             scanf("%d", &s1);
                             printf("Sommet d'arrivée : ");
@@ -53,15 +53,11 @@ int main(void)
                             while (getchar() != '\n');
                             scanf("%c", &symbole);
 
-                            ajouter_arc(pautomate, s1, s2, symbole);
+                            ajouter_arc(pautomate->graphe_trans, s1, s2, symbole);
                             break;
 
                         // Retirer arc
                         case 2 :
-                            int s1;
-                            int s2;
-                            char symbole;
-
                             printf("Sommet de départ : ");
                             scanf("%d", &s1);
                             printf("Sommet d'arrivée : ");
@@ -70,21 +66,21 @@ int main(void)
                             while (getchar() != '\n');
                             scanf("%c", &symbole);
 
-                            retirer_arc(pautomate, s1, s2, symbole);
+                            retirer_arc(pautomate->graphe_trans, s1, s2, symbole);
                             break;
                     }
                     break;
 
                 // Reconnaitre un mot
-                case 2 : 
-                    char mot[100];
+                case 2 :
+
                     printf("Mot : ");
                     while (getchar() != '\n');
                     scanf("%s", mot);
 
                     // Renvoie 1 si le mot est reconnu par l'automate
                     // Renvoie 0 si le mot n'est pas reconnu par l'automate
-                    int a = accepte(pautomate, mot);
+                    int a = accepte(pautomate->graphe_trans, mot);
                     if (a == 0)
                     {
                         printf("Le mot %s n'est pas reconnu par l'automate.\n", mot);
@@ -96,13 +92,14 @@ int main(void)
                     break;
 
                 // Quitter
-                case 3 : 
-                    c = -1;
+                case 3 :
+                    liberer_graphe(pautomate->graphe_trans);
+                    c = 0;
                     break;
             }
         }
 
-        fclose(fichier);
+        fclose(pfichier);
     }
     else
     {
