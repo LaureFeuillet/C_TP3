@@ -17,7 +17,34 @@ int main(void)
     if(fichier !=NULL)
     {
         struct automate * pautomate = lire_automate(pfichier);
-        
+
+        int c = 0; // Continuation ou non du menu
+        int x; // Choix du menu
+        while (c != 0)
+        {
+            switch(x)
+            {
+                // Modifier l'automate
+                case 1 : 
+                    int y; // Choix de la modification de l'automate
+                    switch(y)
+                    {  
+                        // Ajouter arc
+                        case 1 :
+
+                            break;
+
+                        // Retirer arc
+                        case 2 :
+                            break;
+                    }
+                    break;
+
+                // Reconnaître un mot
+                case 2 : 
+                    break;
+            }
+        }
 
 
 
