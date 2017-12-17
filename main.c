@@ -8,11 +8,11 @@ int main(void)
     // Prend un nom de fichier en paramètres
     int taille = 15;
     char * nomfichier = calloc(taille,sizeof(char));
-    FILE * fichier = NULL;
+    FILE * pfichier = NULL;
     printf("Nom du fichier : ");
     lecture(nomfichier,taille);
 
-    pfichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
+    pfichier = fopen(nomfichier, "r+"); // Ouverture du fichier en mode lecture
 
     if(pfichier !=NULL)
     {
@@ -24,7 +24,7 @@ int main(void)
         {
             while(x>3 || x<1)
             {
-                printf("\n1. Modifier l'automate\n2. Reconnaître un mot\n3. Quitter\n");
+                printf("\n1. Modifier l'automate\n2. Reconnaitre un mot\n3. Quitter\n");
                 scanf("%d",&x);
             }
             switch(x)
@@ -75,16 +75,16 @@ int main(void)
                     }
                     break;
 
-                // Reconnaître un mot
+                // Reconnaitre un mot
                 case 2 : 
-                    char mot [100];
+                    char mot[100];
                     printf("Mot : ");
                     while (getchar() != '\n');
                     scanf("%s", mot);
 
                     // Renvoie 1 si le mot est reconnu par l'automate
                     // Renvoie 0 si le mot n'est pas reconnu par l'automate
-                    int a = accepte(pautomate, const char * mot);
+                    int a = accepte(pautomate, mot);
                     if (a == 0)
                     {
                         printf("Le mot %s n'est pas reconnu par l'automate.\n", mot);
