@@ -22,6 +22,11 @@ int main(void)
         int x; // Choix du menu
         while (c != 0)
         {
+            while(choixMenu>6 || choixMenu<1)
+            {
+                printf("\n\n1.Creer un arc\n2.Retirer un arc\n3.Affiche le graphe\n4.Transition\n5.Liberer la memoire et recreer un graphe\n6.Stop\nChoix : ");
+                scanf("%d",&choixMenu);
+            }
             switch(x)
             {
                 // Modifier l'automate
