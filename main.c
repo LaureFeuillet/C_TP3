@@ -22,16 +22,21 @@ int main(void)
         int x; // Choix du menu
         while (c != 0)
         {
-            while(choixMenu>6 || choixMenu<1)
+            while(x>3 || x<1)
             {
-                printf("\n\n1.Creer un arc\n2.Retirer un arc\n3.Affiche le graphe\n4.Transition\n5.Liberer la memoire et recreer un graphe\n6.Stop\nChoix : ");
-                scanf("%d",&choixMenu);
+                printf("\n1. Modifier l'automate\n2. Reconnaître un mot\n3. Quitter\n");
+                scanf("%d",&x);
             }
             switch(x)
             {
                 // Modifier l'automate
                 case 1 : 
                     int y; // Choix de la modification de l'automate
+                    while(x>2 || x<1)
+                    {
+                        printf("\n1. Ajouter un arc\n2. Retirer un arc\n");
+                        scanf("%d",&x);
+                    }
                     switch(y)
                     {  
                         // Ajouter arc
@@ -45,6 +50,7 @@ int main(void)
                             printf("Sommet d'arrivée : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
+                            while (getchar() != '\n');
                             scanf("%c", &symbole);
 
                             ajouter_arc(pautomate, s1, s2, symbole);
@@ -61,6 +67,7 @@ int main(void)
                             printf("Sommet d'arrivée : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
+                            while (getchar() != '\n');
                             scanf("%c", &symbole);
 
                             retirer_arc(pautomate, s1, s2, symbole);
@@ -71,19 +78,26 @@ int main(void)
                 // Reconnaître un mot
                 case 2 : 
                     char mot [100];
-
+                    printf("Mot : ");
+                    while (getchar() != '\n');
+                    scanf("%s", mot);
 
                     // Renvoie 1 si le mot est reconnu par l'automate
                     // Renvoie 0 si le mot n'est pas reconnu par l'automate
                     int a = accepte(pautomate, const char * mot);
+                    if (a == 0)
+                    {
+                        printf("Le mot %s n'est pas reconnu par l'automate.\n", mot);
+                    }
+                    if (a==1)
+                    {
+                        printf("Le mot %s est reconu par l'automate.\n", mot);
+                    }
                     break;
 
                 // Quitter
                 case 3 : 
                     c = -1;
-                    break;
-
-                default :
                     break;
             }
         }
@@ -94,8 +108,6 @@ int main(void)
     {
         printf("Impossible d'ouvrir le fichier");
     }
-
-
 
     return 0;
 }
