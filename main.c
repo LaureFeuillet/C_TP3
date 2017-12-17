@@ -5,6 +5,37 @@
 
 int main(void)
 {
+    // Prend un nom de fichier en paramètres
+    int taille = 15;
+    char * nomfichier = calloc(taille,sizeof(char));
+    FILE * fichier = NULL;
+    printf("Nom du fichier : ");
+    lecture(nomfichier,taille);
+
+    fichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
+
+    if(fichier !=NULL)
+    {
+        struct automate * pautomate = 
+        fclose(fichier);
+    }
+    else
+    {
+        printf("Impossible d'ouvrir le fichier");
+    }
+
+    return 0;
+
+
+
+
+
+
+
+
+
+
+
     int taille = 15;
     char * nomfichier = calloc(taille,sizeof(char));
     FILE * fichier = NULL;
@@ -12,6 +43,8 @@ int main(void)
     lecture(nomfichier,taille);
     printf("Lecture du fichier %s",nomfichier);
     fichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
+
+
     if(fichier !=NULL)
     {
         struct automate * pautomate = lire_automate(fichier);

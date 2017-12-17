@@ -4,8 +4,9 @@
 #include "graphe.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 // Paramètres : descripteur de fichier
-// Retourne un graphe alloué en mémoire dans la fonction
+// Retourne un automate alloué en mémoire dans la fonction
 struct automate * lire_automate(FILE * pfichier)
 {
     fseek(pfichier,0,SEEK_SET);
