@@ -47,20 +47,36 @@ int main(void)
 
                         // Retirer arc
                         case 2 :
+                            int s1;
+                            int s2;
+                            char symbole;
+
+                            printf("Sommet de départ : ");
+                            scanf("%d", &s1);
+                            printf("Sommet d'arrivée : ");
+                            scanf("%d", &s2);
+                            printf("Etiquette : ");
+                            scanf("%c", &symbole);
+
+                            retirer_arc(pautomate, s1, s2, symbole);
                             break;
                     }
                     break;
 
                 // Reconnaître un mot
                 case 2 : 
-
+                    // Renvoie 1 si le mot est reconnu par l'automate
+                    // Renvoie 0 si le mot n'est pas reconnu par l'automate
+                    int accepte(pautomate, const char * mot)
                     break;
 
+                // Quitter
                 case 3 : 
+                    c = -1;
                     break;
 
                 default :
-                break;
+                    break;
             }
         }
 
