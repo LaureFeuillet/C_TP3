@@ -17,6 +17,11 @@ int main(void)
     if(fichier !=NULL)
     {
         struct automate * pautomate = 
+
+
+
+
+
         fclose(fichier);
     }
     else
@@ -27,7 +32,7 @@ int main(void)
 
 
     return 0;
-
+}
 
 
 // void Menu(struct graphe * pgraphe)
