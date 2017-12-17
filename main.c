@@ -65,9 +65,12 @@ int main(void)
 
                 // Reconnaître un mot
                 case 2 : 
+                    char mot [100];
+                    
+                    
                     // Renvoie 1 si le mot est reconnu par l'automate
                     // Renvoie 0 si le mot n'est pas reconnu par l'automate
-                    int accepte(pautomate, const char * mot)
+                    int a = accepte(pautomate, const char * mot);
                     break;
 
                 // Quitter
