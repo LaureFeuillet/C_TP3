@@ -4,12 +4,11 @@
 #include "graphe.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 // Paramètres : descripteur de fichier
 // Retourne un graphe alloué en mémoire dans la fonction
 struct automate * lire_automate(FILE * pfichier)
 {
-    fseek(pfichier,0,SEEK_SET); // Place le curseur pfichier au début du fichier (place 0 en partant du début)
+    fseek(pfichier,0,SEEK_SET);
     int nbetats,nbalphabet,i;
     fscanf(pfichier,"%d %d",&nbetats,&nbalphabet); //On récupère le nombre d'état et le nombre de lettre dans l'alphabet
     char alphabet[nbalphabet];
@@ -34,7 +33,7 @@ struct automate * lire_automate(FILE * pfichier)
     return pautomate;
 }
 
-// Bug : rajoute dans le fichier graphe.txt des données en plus
+/* bug : rajoute dans le fichier graphe.txt des données en plus*/
 // Paramètres : descripteur de fichier + graphe
 struct automate * ecrire_automate(FILE * pfichier, struct automate * pautomate)
 {
@@ -51,7 +50,7 @@ struct automate * ecrire_automate(FILE * pfichier, struct automate * pautomate)
     v = getchar();
 
 
-    if ((e1 < pautomate->graphe_trans->nbsommets) && (e2 < pautomate->graphe_trans->nbsommets) && (etiquette_existe(pautomate, v) == 1)) // Si un arc avec ces paramètres n'existe pas encore
+    if ((e1 < pautomate->graphe_trans->nbsommets) && (e2 < pautomate->graphe_trans->nbsommets)&& (etiquette_existe(pautomate, v)==1)) // Si un arc avec ces paramètres n'existe pas encore
 	{
 	    if(arc_existe(pautomate->graphe_trans, e1, e2, v) == 0)
             fprintf(pfichier," %d %d %c",e1,e2,v);
@@ -75,7 +74,7 @@ void sauvegarde_automate(struct automate * pautomate, char * nomfichier)
     {
         int taille_alpha = strlen(pautomate->alphabet)-1; // -1 car il y a le caractère de fin de chaine
         fprintf(pfichier,"%d %d",pautomate->graphe_trans->nbsommets,taille_alpha);
-        for(i=0;i<=taille_alpha;++i)//On crée l'alphabet
+        for(i=0;i<=taille_alpha;++i)//On créer l'alphabet
             fprintf(pfichier,"%c",pautomate->alphabet[i]);
 
         int taille_etatfinaux = strlen(pautomate->etats_finaux)+1; // On a décalé le pointeur à l'initialisation
@@ -99,12 +98,9 @@ void sauvegarde_automate(struct automate * pautomate, char * nomfichier)
     fclose(pfichier);
 }
 
-// Paramètres : Chaîne de caractères + Taille (de la chaine de caractère)
-// Permet à l'utilisation de rentrer une chaîne de carcatères 
-// Equivalent à un fgets sauf que le retour à la ligne est considéré comme une entrée 
 void lecture(char * pnomfichier, int taille)
 {
-    static int init=0; // La variable init est sauvegardée à chaque fois qu'on refera appel à cette fonction
+    static int init=0;
     int len_nomfichier;
     if(init>=2)
         while (getchar() != '\n');

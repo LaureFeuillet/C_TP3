@@ -32,7 +32,7 @@ int main(void)
         {
             char * nomfichier2 = calloc(taille,sizeof(char));
             printf("Sauvegarde de l'automate\nNom de fichier :");
-            lecture(nomfichier2,taille); // Permet de lire la chaine de caractÃ¨re rentrÃ©e par l'utilisateur et d'enlevere le \n Ã  la fin
+            lecture(nomfichier2,taille); // Permet de lire la chaine de caractère rentrée par l'utilisateur et d'enlevere le \n à la fin
             sauvegarde_automate(pautomate,nomfichier2);
         }
 

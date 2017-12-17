@@ -6,7 +6,6 @@
 struct automate * creer_automate(int, const char *, int, const int *, int);
 void liberer_automate(struct automate *);
 void ajouter_transition(struct automate *, int, int, char);
-int etiquette_existe(struct automate *, char);
 
 struct automate
 {
