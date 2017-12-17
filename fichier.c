@@ -12,13 +12,9 @@ struct automate * lire_automate(FILE * pfichier)
     fseek(pfichier,0,SEEK_SET); //Remet le curseur au début du fichier
     int nbetats,nbalphabet,i;
     fscanf(pfichier,"%d %d",&nbetats,&nbalphabet); //On récupère le nombre d'état et le nombre de lettre dans l'alphabet
-<<<<<<< HEAD
+
     char alphabet[nbalphabet];
     for(i=0;i<=nbalphabet;++i)//On crée l'alphabet
-=======
-    char alphabet[nbalphabet]; 
-    for(i=0;i<=nbalphabet;++i)//On créer l'alphabet
->>>>>>> 298cbe9de8f881a715bb581e4d0008737e189466
         fscanf(pfichier,"%c",&alphabet[i]);
 
     int etat_init,nbetatsfinaux;
