@@ -98,6 +98,7 @@ void sauvegarde_automate(struct automate * pautomate, char * nomfichier)
     fclose(pfichier);
 }
 
+
 void lecture(char * pnomfichier, int taille)
 {
     static int init=0;
