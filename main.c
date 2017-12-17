@@ -31,7 +31,18 @@ int main(void)
                     {  
                         // Ajouter arc
                         case 1 :
+                            int s1;
+                            int s2;
+                            char symbole;
 
+                            printf("Sommet de départ : ");
+                            scanf("%d", &s1);
+                            printf("Sommet d'arrivée : ");
+                            scanf("%d", &s2);
+                            printf("Etiquette : ");
+                            scanf("%c", &symbole);
+
+                            ajouter_arc(pautomate, s1, s2, symbole);
                             break;
 
                         // Retirer arc
@@ -42,7 +53,14 @@ int main(void)
 
                 // Reconnaître un mot
                 case 2 : 
+
                     break;
+
+                case 3 : 
+                    break;
+
+                default :
+                break;
             }
         }
 

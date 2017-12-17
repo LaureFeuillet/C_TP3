@@ -13,7 +13,7 @@ struct automate * lire_automate(FILE * pfichier)
     int nbetats,nbalphabet,i;
     fscanf(pfichier,"%d %d",&nbetats,&nbalphabet); //On récupère le nombre d'état et le nombre de lettre dans l'alphabet
     char alphabet[nbalphabet];
-    for(i=0;i<=nbalphabet;++i)//On créer l'alphabet
+    for(i=0;i<=nbalphabet;++i)//On crée l'alphabet
         fscanf(pfichier,"%c",&alphabet[i]);
 
     int etat_init,nbetatsfinaux;
