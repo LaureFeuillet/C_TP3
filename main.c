@@ -12,9 +12,9 @@ int main(void)
     printf("Nom du fichier : ");
     lecture(nomfichier,taille);
 
-    fichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
+    pfichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
 
-    if(fichier !=NULL)
+    if(pfichier !=NULL)
     {
         struct automate * pautomate = lire_automate(pfichier);
 
@@ -66,8 +66,8 @@ int main(void)
                 // Reconnaître un mot
                 case 2 : 
                     char mot [100];
-                    
-                    
+
+
                     // Renvoie 1 si le mot est reconnu par l'automate
                     // Renvoie 0 si le mot n'est pas reconnu par l'automate
                     int a = accepte(pautomate, const char * mot);
@@ -82,10 +82,6 @@ int main(void)
                     break;
             }
         }
-
-
-
-
 
         fclose(fichier);
     }
