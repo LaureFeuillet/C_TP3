@@ -24,11 +24,78 @@ int main(void)
         printf("Impossible d'ouvrir le fichier");
     }
 
+
+
     return 0;
 
 
 
+// void Menu(struct graphe * pgraphe)
+// {
+//     int choixMenu=-1,sommet1,sommet2,tailleGraphe,i=0,etat_depart;
+//     char symbole, alphabet[9]={'a','b','c','d','e','f','g','h'};
+//     while(choixMenu != 6)
+//     {
+//         choixMenu=-1;
+//         while(choixMenu>6 || choixMenu<1)
+//         {
+//             printf("\n\n1.Creer un arc\n2.Retirer un arc\n3.Affiche le graphe\n4.Transition\n5.Liberer la memoire et recreer un graphe\n6.Stop\nChoix : ");
+//             scanf("%d",&choixMenu);
+//         }
 
+//         switch(choixMenu)
+//         {
+//             case 1 :
+
+//                 do{
+//                     printf("Sommet de depart :");
+//                     scanf("%d",&sommet1);
+//                     printf("Sommet d'arrivee :");
+//                     scanf("%d",&sommet2);
+//                     if(i<9){
+//                         symbole=alphabet[i];
+//                         i++;
+//                     }
+//                     else
+//                         i=0;
+//                 }while(Verification(pgraphe,sommet1,sommet2));
+//                 ajouter_arc(pgraphe, sommet1, sommet2, symbole);
+//                 break;
+
+//             case 2 :
+//                 do{
+//                     printf("Sommet de depart :");
+//                     scanf("%d",&sommet1);
+//                     printf("Sommet d'arrivee :");
+//                     scanf("%d",&sommet2);
+//                 }while(Verification(pgraphe,sommet1,sommet2));
+//                 retirer_arc(pgraphe, sommet1, sommet2);
+//                 break;
+
+//             case 3 : afficher(pgraphe);
+//             break;
+
+//             case 4:
+//                 symbole = 'a'; // Il faut recuperer le symbole
+//                 printf("Etat de depart : ");
+//                 scanf("%d",&etat_depart);
+//                 if(transiter(pgraphe,etat_depart,symbole) != -1)
+//                     printf("En partant de l'etat %d, on arrive a l'etat %d en passant par la branche de symbole : %c",etat_depart,transiter(pgraphe,etat_depart,symbole),symbole);
+//                 else
+//                     printf("Transition impossible auncun arc du sommet %d n'a le symbole %c",etat_depart,symbole);
+//                 break;
+//             case 5 :
+//                 liberer_graphe(pgraphe);
+//                 printf("\nVeuillez rentrer la taille de votre graphe :");
+//                 scanf("%d",&tailleGraphe);
+//                 struct graphe * pgraphe = creer_graphe(tailleGraphe);
+//             break;
+
+//             case 6 : liberer_graphe(pgraphe);
+//             break;
+//         }
+//     }
+// }
 
 
 
