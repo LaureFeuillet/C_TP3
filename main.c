@@ -20,7 +20,7 @@ int main(void)
 
         int c = 1; // Continuation ou non du menu
         int x=0; // Choix du menu
-        while (c != 0)
+        while (c != -1)
         {
             while(x>3 || x<1)
             {
@@ -82,17 +82,14 @@ int main(void)
 
                     // Reconnaitre un mot
                     case 2 :
-                        printf("\n");
-                        char mot[100];
-                        printf("OK 1\n");
+
                         printf("Mot : ");
                         while (getchar() != '\n');
                         scanf("%s", mot);
-                        printf("OK 2\n");
 
                         // Renvoie 1 si le mot est reconnu par l'automate
                         // Renvoie 0 si le mot n'est pas reconnu par l'automate
-                        int a = accepte(pautomate->graphe_trans, mot);
+                        int a = accepte(pautomate, mot);
                         if (a == 0)
                         {
                             printf("Le mot %s n'est pas reconnu par l'automate.\n", mot);
@@ -101,15 +98,18 @@ int main(void)
                         {
                             printf("Le mot %s est reconu par l'automate.\n", mot);
                         }
+                        x=-1;
                         break;
-
                     // Quitter
                     case 3 :
                         liberer_graphe(pautomate->graphe_trans);
-                        c = 0;
+                        x=-1;
+                        c = -1;
                         break;
                 }
             }
+
+
         }
 
         fclose(pfichier);
@@ -121,3 +121,118 @@ int main(void)
 
     return 0;
 }
+
+
+// void Menu(struct graphe * pgraphe)
+// {
+//     int choixMenu=-1,sommet1,sommet2,tailleGraphe,i=0,etat_depart;
+//     char symbole, alphabet[9]={'a','b','c','d','e','f','g','h'};
+//     while(choixMenu != 6)
+//     {
+//         choixMenu=-1;
+//         while(choixMenu>6 || choixMenu<1)
+//         {
+//             printf("\n\n1.Creer un arc\n2.Retirer un arc\n3.Affiche le graphe\n4.Transition\n5.Liberer la memoire et recreer un graphe\n6.Stop\nChoix : ");
+//             scanf("%d",&choixMenu);
+//         }
+
+//         switch(choixMenu)
+//         {
+//             case 1 :
+
+//                 do{
+//                     printf("Sommet de depart :");
+//                     scanf("%d",&sommet1);
+//                     printf("Sommet d'arrivee :");
+//                     scanf("%d",&sommet2);
+//                     if(i<9){
+//                         symbole=alphabet[i];
+//                         i++;
+//                     }
+//                     else
+//                         i=0;
+//                 }while(Verification(pgraphe,sommet1,sommet2));
+//                 ajouter_arc(pgraphe, sommet1, sommet2, symbole);
+//                 break;
+
+//             case 2 :
+//                 do{
+//                     printf("Sommet de depart :");
+//                     scanf("%d",&sommet1);
+//                     printf("Sommet d'arrivee :");
+//                     scanf("%d",&sommet2);
+//                 }while(Verification(pgraphe,sommet1,sommet2));
+//                 retirer_arc(pgraphe, sommet1, sommet2);
+//                 break;
+
+//             case 3 : afficher(pgraphe);
+//             break;
+
+//             case 4:
+//                 symbole = 'a'; // Il faut recuperer le symbole
+//                 printf("Etat de depart : ");
+//                 scanf("%d",&etat_depart);
+//                 if(transiter(pgraphe,etat_depart,symbole) != -1)
+//                     printf("En partant de l'etat %d, on arrive a l'etat %d en passant par la branche de symbole : %c",etat_depart,transiter(pgraphe,etat_depart,symbole),symbole);
+//                 else
+//                     printf("Transition impossible auncun arc du sommet %d n'a le symbole %c",etat_depart,symbole);
+//                 break;
+//             case 5 :
+//                 liberer_graphe(pgraphe);
+//                 printf("\nVeuillez rentrer la taille de votre graphe :");
+//                 scanf("%d",&tailleGraphe);
+//                 struct graphe * pgraphe = creer_graphe(tailleGraphe);
+//             break;
+
+//             case 6 : liberer_graphe(pgraphe);
+//             break;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+    // int taille = 15;
+    // char * nomfichier = calloc(taille,sizeof(char));
+    // FILE * fichier = NULL;
+    // printf("Fichier a lire : ");
+    // lecture(nomfichier,taille);
+    // printf("Lecture du fichier %s",nomfichier);
+    // fichier = fopen(nomfichier, "r+"); // ouverture du fichier en mode lecture
+
+
+    // if(fichier !=NULL)
+    // {
+    //     struct automate * pautomate = lire_automate(fichier);
+    //     // Renvoie 1 si le mot est reconnu par l'automate
+    //     // Renvoie 0 si le mot n'est pas reconnu par l'automate
+    //     char * alpha = calloc(taille,sizeof(char));
+    //     printf("Votre mot :");
+    //     lecture(alpha,taille);
+    //     if(accepte(pautomate,alpha))
+    //         printf("Mot accepte");
+
+    //     int rep;
+    //     printf("\nVoulez-vous modifiez l'automate (1 = yes) :");
+    //     scanf("%d",&rep);
+    //     if(rep==1)
+    //        pautomate=ecrire_automate(fichier,pautomate);
+    //     if(rep==2)
+    //     {
+    //         char * nomfichier2 = calloc(taille,sizeof(char));
+    //         printf("Sauvegarde de l'automate\nNom de fichier :");
+    //         lecture(nomfichier2,taille); // Permet de lire la chaine de caractère rentrée par l'utilisateur et d'enlevere le \n à la fin
+    //         sauvegarde_automate(pautomate,nomfichier2);
+    //     }
+
+    //     fclose(fichier);
+    // }
+    // else
+    // {
+    //     printf("Impossible d'ouvrir le fichier");
+    // }
+

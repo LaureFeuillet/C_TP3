@@ -11,36 +11,36 @@ struct automate * lire_automate(FILE * pfichier)
 {
     fseek(pfichier,0,SEEK_SET); //Remet le curseur au début du fichier
     int nbetats,nbalphabet,i;
-    fscanf(pfichier,"%d %d",&nbetats,&nbalphabet); //On récupère le nombre d'état et le nombre de lettres dans l'alphabet
+    fscanf(pfichier,"%d %d",&nbetats,&nbalphabet); //On récupère le nombre d'état et le nombre de lettre dans l'alphabet
 
     char alphabet[nbalphabet];
     for(i=0;i<=nbalphabet;++i)//On crée l'alphabet
         fscanf(pfichier,"%c",&alphabet[i]);
 
     int etat_init,nbetatsfinaux;
-    fscanf(pfichier,"%d %d",&etat_init,&nbetatsfinaux); // On récupère l'état initial et le nombre d'états finaux
+    fscanf(pfichier,"%d %d",&etat_init,&nbetatsfinaux); // On récupère l'état initiale et le nombre d'état final
     int etats_finaux_parametres[nbetatsfinaux];
-    for(i=0;i<nbetatsfinaux;++i)// On crée un tableau avec le nombre d'états finaux
+    for(i=0;i<nbetatsfinaux;++i)// On créer un trableau avec le nombre d'état final
         fscanf(pfichier,"%d",&etats_finaux_parametres[i]);
 
     struct automate * pautomate = creer_automate(nbetats, alphabet, etat_init, etats_finaux_parametres, nbetatsfinaux);
 
     int lecture[2];
     char symbole;
-    while(fscanf(pfichier,"%d %d %c", &lecture[0],&lecture[1],&symbole)==3) // La fonction fscanf() renvoie 3 si tout se passe bien, 0 si la donnée ne correspond pas au format et -1 à la fin du fichier
+    while(fscanf(pfichier,"%d %d %c", &lecture[0],&lecture[1],&symbole)==3) // La fonction fscanf() renvoie 3 si tt se passe bien 0 si la donnée ne correspond pas au format et -1 à la fin du fichier
     {
          ajouter_transition(pautomate, lecture[0], lecture[1], symbole);
     }
     return pautomate;
 }
 
-// Bug : rajoute dans le fichier graphe.txt des données en plus
+/* bug : rajoute dans le fichier graphe.txt des données en plus*/
 // Paramètres : descripteur de fichier + graphe
 struct automate * ecrire_automate(FILE * pfichier, struct automate * pautomate)
 {
     int e1,e2;
     char v;
-    // Création d'une transition 
+    /* Création d'une transition */
     fseek(pfichier,0,SEEK_END); // On met le curseur à la fin
     printf("Etat depart :");
     scanf("%d",&e1);
@@ -58,7 +58,7 @@ struct automate * ecrire_automate(FILE * pfichier, struct automate * pautomate)
 	}
 	else
         printf("Impossible de créer l'arc");
-    // Mise à jour
+    /*Mise à jour*/
     liberer_automate(pautomate);
     pautomate=lire_automate(pfichier);
     return pautomate;
