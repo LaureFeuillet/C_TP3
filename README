@@ -1,4 +1,19 @@
-La question 2 et 3 de partie 3 n'ont pas été réalisées.
-Pour lancer le programme, il suffit de faire un "make".
-Il y a un fichier déjà rempli "automate.txt" qui initialise un automate.
+Pour lancer le programme, se placer dans le dossier : 
+make
+./tp3
+Nom du fichier : a.txt
+...
 
+
+Dans a.txt il y a les données d'un automate quelconque que l'on peut changer à convenance, en suivant le schéma suivant : 
+nombre_etats 2
+langage
+etat_initial nombre_etats_finaux
+etats_finaux
+sommetdepart1 sommetarrivee1 etiquette1
+sommetdepart2 sommetarrivee2 etiquette2
+sommetdepart3 sommetarrivee3 etiquette3
+...
+
+Les questions 2 et 3 de la partie 3 n'ont pas été réalisées.
+Il y a une fonction supplémentaire, ecrire_graphe dans fichier.c, qui permet de modifier dynamiquement le fichier dans lequel est situé le graphe.

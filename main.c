@@ -10,16 +10,21 @@ int main(void)
     char * nomfichier = calloc(taille,sizeof(char));
     FILE * pfichier = NULL;
     printf("Nom du fichier : ");
-    lecture(nomfichier,taille);
+    lecture(nomfichier, taille);
 
     pfichier = fopen(nomfichier, "r+"); // Ouverture du fichier en mode lecture
 
-    if(pfichier !=NULL)
+    if(pfichier != NULL)
     {
         struct automate * pautomate = lire_automate(pfichier);
 
+<<<<<<< HEAD
+        int c = 0; // Continuation ou non du menu
+        int x = 0; // Choix du menu
+=======
         int c = 1; // Continuation ou non du menu
         int x=0; // Choix du menu
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
         while (c != 0)
         {
             while(x>3 || x<1)
@@ -35,20 +40,42 @@ int main(void)
             switch(x)
             {
                 // Modifier l'automate
+<<<<<<< HEAD
+                case 1 : 
+                    printf("\n");
+                    int y = 0; // Choix de la modification de l'automate
+                    while(y>2 || y<1)
+=======
                 case 1 :
                     y=0;
+<<<<<<< HEAD
                     while((y>5 || y<1))
+=======
+                    while((y>3 || y<1))
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
+>>>>>>> 22038c0bab63b4854cb1dab07fb3e4c39b7caebf
                     {
                         printf("\n1. Ajouter un arc\n2. Retirer un arc\n3. Affiche graphe\n4. Retour\nChoix :");
                         scanf("%d",&y);
                     }
                     switch(y)
+<<<<<<< HEAD
+                    {  
+                        int s1;
+                        int s2;
+                        char symbole;
+                        // Ajouter arc
+                        case 1 :
+                            printf("\n");
+                            printf("Sommet de depart : ");
+=======
                     {
                         // Ajouter arc
                         case 1 :
                             printf("Sommet de départ : ");
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
                             scanf("%d", &s1);
-                            printf("Sommet d'arrivée : ");
+                            printf("Sommet d'arrivee : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
                             while (getchar() != '\n');
@@ -59,9 +86,14 @@ int main(void)
 
                         // Retirer arc
                         case 2 :
+<<<<<<< HEAD
+                            printf("\n");
+                            printf("Sommet de depart : ");
+=======
                             printf("Sommet de départ : ");
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
                             scanf("%d", &s1);
-                            printf("Sommet d'arrivée : ");
+                            printf("Sommet d'arrivee : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
                             while (getchar() != '\n');
@@ -79,8 +111,14 @@ int main(void)
                     break;
 
                 // Reconnaitre un mot
+<<<<<<< HEAD
+                case 2 : 
+                    printf("\n");
+                    char mot[100];
+=======
                 case 2 :
 
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
                     printf("Mot : ");
                     while (getchar() != '\n');
                     scanf("%s", mot);
@@ -99,19 +137,31 @@ int main(void)
                     break;
 
                 // Quitter
+<<<<<<< HEAD
+                case 3 : 
+                    printf("\n");
+                    c = -1;
+=======
                 case 3 :
                     liberer_graphe(pautomate->graphe_trans);
                     c = 0;
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
                     break;
             }
         }
 
         fclose(pfichier);
+<<<<<<< HEAD
+        sauvegarde_automate(pautomate, nomfichier);
+=======
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
     }
     else
     {
         printf("Impossible d'ouvrir le fichier");
     }
+
+    
 
     return 0;
 }
