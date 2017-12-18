@@ -12,6 +12,8 @@ int main(void)
     printf("Nom du fichier : ");
     lecture(nomfichier,taille);
 
+    printf("OK");
+
     pfichier = fopen(nomfichier, "r+"); // Ouverture du fichier en mode lecture
 
     if(pfichier !=NULL)
