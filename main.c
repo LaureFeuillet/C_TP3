@@ -36,9 +36,10 @@ int main(void)
             {
                 // Modifier l'automate
                 case 1 :
-                    while(y>2 || y<1)
+                    y=0;
+                    while((y>3 || y<1))
                     {
-                        printf("\n1. Ajouter un arc\n2. Retirer un arc\n");
+                        printf("\n1. Ajouter un arc\n2. Retirer un arc\n3. Affiche graphe\n4. Retour\nChoix :");
                         scanf("%d",&y);
                     }
                     switch(y)
@@ -67,6 +68,12 @@ int main(void)
                             scanf("%c", &symbole);
 
                             retirer_arc(pautomate->graphe_trans, s1, s2, symbole);
+                            break;
+                        case 3:
+                            afficher(pautomate->graphe_trans);
+                            break;
+                        case 4:
+                            x=-1;
                             break;
                     }
                     break;
