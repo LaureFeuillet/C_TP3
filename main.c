@@ -10,16 +10,16 @@ int main(void)
     char * nomfichier = calloc(taille,sizeof(char));
     FILE * pfichier = NULL;
     printf("Nom du fichier : ");
-    lecture(nomfichier,taille);
+    lecture(nomfichier, taille);
 
     pfichier = fopen(nomfichier, "r+"); // Ouverture du fichier en mode lecture
 
-    if(pfichier !=NULL)
+    if(pfichier != NULL)
     {
         struct automate * pautomate = lire_automate(pfichier);
 
         int c = 0; // Continuation ou non du menu
-        int x; // Choix du menu
+        int x = 0; // Choix du menu
         while (c != 0)
         {
             while(x>3 || x<1)
@@ -31,23 +31,24 @@ int main(void)
             {
                 // Modifier l'automate
                 case 1 : 
-                    int y; // Choix de la modification de l'automate
-                    while(x>2 || x<1)
+                    printf("\n");
+                    int y = 0; // Choix de la modification de l'automate
+                    while(y>2 || y<1)
                     {
                         printf("\n1. Ajouter un arc\n2. Retirer un arc\n");
                         scanf("%d",&x);
                     }
                     switch(y)
                     {  
+                        int s1;
+                        int s2;
+                        char symbole;
                         // Ajouter arc
                         case 1 :
-                            int s1;
-                            int s2;
-                            char symbole;
-
-                            printf("Sommet de départ : ");
+                            printf("\n");
+                            printf("Sommet de depart : ");
                             scanf("%d", &s1);
-                            printf("Sommet d'arrivée : ");
+                            printf("Sommet d'arrivee : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
                             while (getchar() != '\n');
@@ -58,13 +59,10 @@ int main(void)
 
                         // Retirer arc
                         case 2 :
-                            int s1;
-                            int s2;
-                            char symbole;
-
-                            printf("Sommet de départ : ");
+                            printf("\n");
+                            printf("Sommet de depart : ");
                             scanf("%d", &s1);
-                            printf("Sommet d'arrivée : ");
+                            printf("Sommet d'arrivee : ");
                             scanf("%d", &s2);
                             printf("Etiquette : ");
                             while (getchar() != '\n');
@@ -77,6 +75,7 @@ int main(void)
 
                 // Reconnaitre un mot
                 case 2 : 
+                    printf("\n");
                     char mot[100];
                     printf("Mot : ");
                     while (getchar() != '\n');
@@ -97,17 +96,21 @@ int main(void)
 
                 // Quitter
                 case 3 : 
+                    printf("\n");
                     c = -1;
                     break;
             }
         }
 
-        fclose(fichier);
+        fclose(pfichier);
+        sauvegarde_automate(pautomate, nomfichier);
     }
     else
     {
         printf("Impossible d'ouvrir le fichier");
     }
+
+    
 
     return 0;
 }
