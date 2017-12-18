@@ -82,7 +82,7 @@ int main(void)
 
                     // Reconnaitre un mot
                     case 2 :
-
+                        char mot[100];
                         printf("Mot : ");
                         while (getchar() != '\n');
                         scanf("%s", mot);
