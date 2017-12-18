@@ -104,8 +104,7 @@ void lecture(char * pnomfichier, int taille)
 {
     static int init=0;
     int len_nomfichier;
-    if(init>=2)
-        while (getchar() != '\n');
+    while (getchar() != '\n');
     fgets(pnomfichier,taille,stdin);
     len_nomfichier = strlen(pnomfichier);
     pnomfichier[(len_nomfichier-1)]='\0';
