@@ -37,7 +37,7 @@ int main(void)
                 // Modifier l'automate
                 case 1 :
                     y=0;
-                    while((y>3 || y<1))
+                    while((y>5 || y<1))
                     {
                         printf("\n1. Ajouter un arc\n2. Retirer un arc\n3. Affiche graphe\n4. Retour\nChoix :");
                         scanf("%d",&y);
