@@ -36,7 +36,15 @@ int main(void)
                 // Modifier l'automate
                 case 1 :
                     y=0;
+<<<<<<< HEAD
+                    while((y>5 || y<1))
+=======
                     while((y>3 || y<1))
+<<<<<<< HEAD
+=======
+>>>>>>> 5bd739eb3780a72c29072ca312e220c52e474cf5
+>>>>>>> 22038c0bab63b4854cb1dab07fb3e4c39b7caebf
+>>>>>>> a5c42d244f7f8d4281351d19314edcbf728af2f0
                     {
                         printf("\n1. Ajouter un arc\n2. Retirer un arc\n3. Affiche graphe\n4. Retour\nChoix :");
                         scanf("%d",&y);
