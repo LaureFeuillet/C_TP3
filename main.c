@@ -82,10 +82,13 @@ int main(void)
 
                     // Reconnaitre un mot
                     case 2 :
+                        printf("\n");
                         char mot[100];
+                        printf("OK 1\n");
                         printf("Mot : ");
                         while (getchar() != '\n');
                         scanf("%s", mot);
+                        printf("OK 2\n");
 
                         // Renvoie 1 si le mot est reconnu par l'automate
                         // Renvoie 0 si le mot n'est pas reconnu par l'automate
