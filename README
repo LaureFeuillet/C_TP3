@@ -6,7 +6,7 @@ Nom du fichier : a.txt
 
 
 Dans a.txt il y a les données d'un automate quelconque que l'on peut changer à convenance, en suivant le schéma suivant : 
-nombre_etats 2
+nombre_etats taille_alphabet
 langage
 etat_initial nombre_etats_finaux
 etats_finaux
